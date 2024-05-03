@@ -1,4 +1,9 @@
-<div *ngIf="product.quantity > 0" [@slideUpDown] class="card mt-4" id="cart-{{ product.id }}">
+<div
+  *ngIf="product.quantity > 0"
+  [@slideUpDown]
+  class="card mt-4"
+  id="cart-{{ product.id }}"
+>
   <div class="card-body">
     <div class="row w-100">
       <div class="col-sm-4">
@@ -14,10 +19,16 @@
         <p class="card-text">
           <strong>Category:</strong> {{ product.category }}
         </p>
-        <p class="card-text"><strong>Price:</strong> {{ product.price.toFixed(2) }}€</p>
+        <p class="card-text">
+          <strong>Price:</strong> {{ product.price.toFixed(2) }}€
+        </p>
         <p class="card-text">
           <strong>Quantity: </strong>
           <span id="quantity-{{ product.id }}">{{ product.quantity }}</span>
+        </p>
+        <p class="card-text">
+          <strong>Total: </strong>
+          {{ (product.quantity * product.price).toFixed(2) }}€
         </p>
         <button
           type="button"

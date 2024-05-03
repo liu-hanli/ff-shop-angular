@@ -28,6 +28,7 @@
       <div class="form-group">
         <label for="form-product-description">Description</label>
         <textarea
+          required
           class="form-control"
           id="form-product-description"
           rows="3"
@@ -39,6 +40,7 @@
       <div class="form-group">
         <label for="form-product-category">Category</label>
         <select
+          required
           class="form-control"
           id="form-product-category"
           [(ngModel)]="productCategory"
@@ -99,7 +101,11 @@
       >
         Close
       </button>
-      <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!productForm.valid"
+      >
         Add
       </button>
     </div>
