@@ -1,0 +1,43 @@
+<div
+  *ngIf="displayed"
+  [@slideUpDown]
+  class="card mt-4 category-{{ product.category }}"
+  id="product-{{ product.id }}"
+>
+  <div class="card-body">
+    <div class="row w-100">
+      <div class="col-sm-4">
+        <p class="card-text text-center">
+          <strong>ID:</strong> {{ product.id }}
+        </p>
+        <img
+          class="card-img-top {{ available ? '' : 'opacity-50' }}"
+          id="pImg-{{ product.id }}"
+          src="{{ product.image }}"
+          alt="{{ product.name }}"
+        />
+      </div>
+      <div class="col-sm-8">
+        <h5>{{ product.name }}</h5>
+        <p class="card-text">
+          <strong>Category:</strong> {{ product.category }}
+        </p>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text"><strong>Price:</strong> {{ product.price.toFixed(2) }}€</p>
+        <p class="card-text">
+          <strong>Stock: </strong>
+          <span id="stock-{{ product.id }}">{{ product.stock }}</span>
+        </p>
+        <button
+          type="button"
+          class="btn btn-primary add-to-cart"
+          id="add-{{ product.id }}"
+          [disabled]="!available"
+          (click)="onAddToCart()"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

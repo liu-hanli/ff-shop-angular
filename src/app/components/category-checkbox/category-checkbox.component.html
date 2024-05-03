@@ -1,0 +1,11 @@
+<div class="form-check m-2">
+  <label class="form-check-label">
+    <input 
+      type="checkbox" 
+      class="form-check-input checkbox-category" 
+      [checked]="isChecked" 
+      (change)="onChange()"
+    />
+    {{ category }}
+  </label>
+</div>

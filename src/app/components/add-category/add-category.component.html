@@ -1,0 +1,47 @@
+<button
+  type="button"
+  class="btn btn-info"
+  (click)="openModal(addCategoryModal)"
+>
+  New Category
+</button>
+
+<ng-template #addCategoryModal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="addCategoryModalLabel">New Category</h5>
+  </div>
+  <form (ngSubmit)="submitForm()" #categoryForm="ngForm">
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="textInput">Category name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="form-category-name"
+          placeholder="Enter text"
+          name="categoryName"
+          [(ngModel)]="categoryName"
+          #categoryNameInput="ngModel"
+          required
+        />
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-dismiss="modal"
+        (click)="closeModal()"
+      >
+        Close
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="categoryForm.invalid"
+      >
+        Create
+      </button>
+    </div>
+  </form>
+</ng-template>
